@@ -6,19 +6,35 @@
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="../functions/profil.js" defer></script>
-    <title>Document</title>
+    <title>Mon profil</title>
     <style>
         #update{
             display: none;
+        }
+        #passwordupdate{
+            display: none;
+        }
+        @media screen  {
+            body{
+                margin-top: 500px;
+            }
+            #informationupdate{
+                
+                display: flex;
+                flex-direction: column;
+                
+            }
+
+            
         }
     </style>
 </head>
 <body class="flex items-center justify-center h-screen flex-col">
     <div class="h-full w-full flex items-center justify-center flex-col">
         <h1 class="text-4xl text-blue-800 font-bold">Mon profil</h1>
-        <div class=" flex items-center justify-center flex-row w-screen ">
-            <div class="w-96 m-8 h-fit" >
-                <img src="/functions/photo-5484713.svg" alt="" class="">
+        <div class=" flex items-center justify-center flex-row w-screen " id="informationupdate">
+            <div class="w-48 m-4 h-fit" >
+                <img src="/functions/photo-5484713.svg" alt="" id="profile-image" class="rounded-2xl p-2 border-2 border-black-500">
                 <input type="file" name="" id="imageinput" class="my-4">
             </div>
             <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-96">
@@ -51,21 +67,29 @@
               </div>
               
 
-              <div class="flex items-center justify-between">
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" id="edit">
+              <div class="flex items-center justify-between flex-col">
+                <button class=" my-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" id="edit">
                   Modifier mon profil
                 </button>
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" id="update">
+                <button class=" my-2bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" id="update">
                     metre a jour
                   </button>
+
+
+                  <a href="password.html" class="my-2 text-red-800 mx-2 cursor-pointer" id="passwordupdateaccesbutton">modifier le mot de passe</p>
+                    <a href="../index.html" class="text-blue-500"> revenir a la todo list</a>
               </div>
             </form>
-            <!--
-            <p class="text-center text-gray-500 text-xs">
-              &copy;2020 Acme Corp. All rights reserved.
-            </p>
-            -->
+            
           </div>
+
+
+          
+            </form>
+            
+          </div>    
     </div>
 </body>
 </html>
+
+
