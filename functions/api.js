@@ -1,5 +1,9 @@
+let token = localStorage.getItem("todolisttoken")
 export async function fetchJSON(url,options={}){
-    const  headers = {...options.headers, 'Content-Type': 'application/json'}
+    const  headers = {...options.headers, 
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token
+    }
     const response = await fetch(url, {...options, headers})
     if(response.ok){
         return response.json()

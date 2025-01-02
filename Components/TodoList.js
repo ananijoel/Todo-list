@@ -1,5 +1,7 @@
 import { createElelement } from "../functions/dom.js"
-
+let userid = localStorage.getItem("todolistuserid")
+let token = localStorage.getItem("todolisttoken")
+let baseurl = "http://localhost:3000"
 /**
  * @typedef {object} Todo
  * @property {number} id
@@ -72,9 +74,31 @@ export class TodoList {
             title,
             completed: false
         }
+        /*
         const item = new TodoListItem(todo)
         this.#listElement.prepend(item.element)
         form.reset()
+        */
+
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`
+            },
+            body: `{"userid":${userid},"title":"${title}","completed":false}`
+          };
+          
+          fetch(baseurl+'/api/add-todo', options)
+            .then(response => response.json())
+            .then(response => {
+                const item = new TodoListItem(todo)
+                this.#listElement.prepend(item.element)
+                form.reset()
+                console.log(response)
+            })
+            .catch(err => console.error(err));
+        
     }
 
     /**
@@ -135,8 +159,45 @@ class TodoListItem {
         li.append(deleteButton)
         this.toggle(checkbox)
 
-        deleteButton.addEventListener("click",(e)=>this.remove(e))  
-        checkbox.addEventListener("change",e=> this.toggle(e.currentTarget))
+
+        deleteButton.addEventListener("click",(e)=>{
+            const options = {
+                method: 'DELETE',
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+              };
+              
+              fetch('http://localhost:3000/api/remove-todo/'+id, options)
+                .then(response => response.json())
+                .then(response => {
+                    console.log(response)
+                    this.remove(e)
+                })
+                .catch(err => console.error(err));
+        })
+        //deleteButton.addEventListener("click",(e)=>this.remove(e))  
+
+        checkbox.addEventListener("change",e=> {
+            const options = {
+                method: 'PUT',
+                headers: {
+                  Authorization: `Bearer ${token}`
+                }
+              };
+              
+              fetch('http://localhost:3000/api/check-todo/'+id, options)
+                .then(response => response.json())
+                .then(response => {
+                   
+                    console.log(response)
+                })
+                .catch(err => console.error(err));
+                this.toggle(e.currentTarget)
+                //window.location.reload()
+        })
+            
+        //checkbox.addEventListener("change",e=> this.toggle(e.currentTarget))
 
        
     }
@@ -156,6 +217,8 @@ class TodoListItem {
     remove (e) {
         e.preventDefault()
         this.#element.remove()
+        
+        
     }
 
     /**
