@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     
+    <script src="/functions/index.js" defer ></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="app.js" defer type="module"></script>
     <title>Todo list</title>
@@ -21,12 +22,13 @@
 <body>
     <header class="m-8 mb-0 flex justify-center items-center flex-col">
         <h1  class="text-5xl">Todo list</h1>
-        <a  href="pages/profil.html" class="profil m-3 text-blue-500" alt="mon profil">
-             Mon profil
+        <a  href="pages/profil.html" class="profil m-3 text-blue-500 flex flex-row justify-center items-center" alt="mon profil">
+             Mon profil <img class="h-6 w-6 mx-2 rounded-full" src="/src/man-7123760.svg" alt="" id ="profile-image">
         </a>
-        <a  href="pages/logout.html" class="profil  text-red-500" alt="mon profil">
+        <!-- href="pages/logout.html" -->
+        <a   class="profil text-red-500" alt="me deconnecter" id="logout">
             me deconnecter
-       </a>
+           </a>
     </header>
 
 

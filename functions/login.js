@@ -21,10 +21,15 @@ login.addEventListener("click", (e) => {
         if(response.error){
             alert(response.error)
         } else {
-            localStorage.setItem("todolisttoken", response.token)
-            localStorage.setItem("todolistuserid", response.userId)
-            window.location.href = "../index.html"
-            
+            if(response.ok){
+                localStorage.setItem("todolisttoken", response.token)
+                localStorage.setItem("todolistuserid", response.userId)
+                window.location.href = "../index.html"
+                window.location.href = "../index.html"
+            } else{
+                alert(response.message)
+                console.log(response.ok)
+            }
         }
     })
     .catch(err => console.error(err));

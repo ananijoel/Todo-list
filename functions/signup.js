@@ -18,23 +18,26 @@ signup.addEventListener("click", async (e) => {
       };
       
       if(password.value === passwordverify.value){
-        fetch('http://localhost:3000/api/add-user', options)
-        .then(response => response.json())
-        .then(response => console.log(response))
-        .catch(err => console.error(err));
-        window.location.href = "login.html"
+        if (validatePassword(password.value)){
+          fetch('http://localhost:3000/api/add-user', options)
+          .then(response => response.json())
+          .then(response => console.log(response))
+          .catch(err => console.error(err));
+          window.location.href = "login.html"
+        }
+        else{
+          alert("Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial")
+        }
       }else{
         alert("Les mots de passe ne correspondent pas")
       }
 })
 
 
-
-
-    /*
-        console.log(firstname.value)
-    console.log(lastname.value)
-    console.log(email.value)
-    console.log(username.value)
-    console.log(password.value)
-    console.log(passwordverify.value)*/
+function validatePassword(password) {
+  if ((password.length < 8) || (password.length > 50)) {
+      return false;
+  }
+  const regex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+  return regex.test(password);
+}

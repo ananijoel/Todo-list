@@ -44,7 +44,7 @@ function updateProfilePic(form){
 
     options.body = form;
 
-    fetch('http://localhost:3000/api/update-user-picture/ananianatide', options)
+    fetch(baseurl+'/api/update-user-picture/'+userid, options)
     .then(response => response.json())
     .then(response => console.log(response))
     .catch(err => console.error(err));
@@ -58,7 +58,7 @@ function getProfilePic(){
       }
       };
       
-      fetch('http://localhost:3000/api/get-user-picture/ananianatide', options)
+      fetch(baseurl+'/api/get-user-picture/'+userid, options)
         .then(response => response.blob() )
         .then(blob => {
           const imageUrl = URL.createObjectURL(blob);
@@ -83,10 +83,10 @@ function updatePage(){
         .then(response => response.json())
         .then(response => {
             let data = response.data
-            firstname.setAttribute(`placeholder`,data.firstname)
-            lastname.setAttribute(`placeholder`,data.lastname)
-            email.setAttribute(`placeholder`,data.email) 
-            username.setAttribute(`placeholder`,data.username)
+            firstname.value= data.firstname
+            lastname.value= data.lastname
+            email.value = data.email 
+            username.value = data.username
         })
         .catch(err => console.error(err));
 
