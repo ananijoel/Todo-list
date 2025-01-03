@@ -9,7 +9,7 @@ if(userid === undefined || userid === null|| token === undefined || token === nu
     window.location.href = "pages/login.html"
 } else {*/
 try{
-    const todos = await fetchJSON(`http://localhost:3000/api/get-todo/${userid}`)
+    const todos = await fetchJSON(`https://anatide.ulrichanani.com/api/get-todo/${userid}`)
     
     const list = new TodoList(todos)
     

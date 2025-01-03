@@ -2,22 +2,11 @@
 let passwordupdate = document.querySelector("#passwordupdate")
 let informationupdate = document.querySelector("#informationupdate")
 let passwordupdatebutton = document.querySelector("#passwordupdatebutton")
-let passwordupdateaccesbutton = document.querySelector("#passwordupdateaccesbutton")
-let cancelpasswordupdatebutton = document.querySelector("#cancelpasswordupdatebutton")
-
 let oldpassword = document.querySelector("#oldpassword")
 let newpassword = document.querySelector("#newpassword")    
 let newpasswordverify = document.querySelector("#newpasswordverify")
 
-passwordupdateaccesbutton.addEventListener("click", async (e) => {
-    e.preventDefault()
-    passwordupdate.style.display = "block"
-    informationupdate.style.display = "none"
-    passwordupdateaccesbutton.style.display = "none"
-    inputs.forEach(input => {
-        input.removeAttribute('readonly')
-    })
-})
+let baseurl = "https://anatide.ulrichanani.com"
 
 
 passwordupdatebutton.addEventListener("click", async (e) => {
@@ -29,13 +18,11 @@ passwordupdatebutton.addEventListener("click", async (e) => {
     }
 
 })
-cancelpasswordupdatebutton.addEventListener("click", async (e) => {
-    e.preventDefault()
-    window.location.reload()
-})
 
 
 
+let userid = localStorage.getItem("userid")
+let token = localStorage.getItem("token")
 
 
 
@@ -63,4 +50,7 @@ function updatePassword(oldpassword,newpassword){
             alert("L'ancien mot de passe est incorrect")
             console.error(err)
         });
+}
+function backToGeneralProfile(){
+    window.location.href = "profil.html"
 }

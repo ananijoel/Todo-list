@@ -11,6 +11,14 @@
     <script src="/functions/index.js" defer ></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="app.js" defer type="module"></script>
+    <script>
+        window.addEventListener('load', () => {
+            
+                if(localStorage.getItem('token') === null){
+                    window.location.href = '/pages/login.html';
+                }
+        });
+    </script>
     <title>Todo list</title>
     <style>
         .hide-completed .is-completed,
@@ -23,7 +31,7 @@
     <header class="m-8 mb-0 flex justify-center items-center flex-col">
         <h1  class="text-5xl">Todo list</h1>
         <a  href="pages/profil.html" class="profil m-3 text-blue-500 flex flex-row justify-center items-center" alt="mon profil">
-             Mon profil <img class="h-6 w-6 mx-2 rounded-full" src="/src/man-7123760.svg" alt="" id ="profile-image">
+             Mon profil <img class="h-6 w-6 mx-2 rounded-full" src="/src/photo-5484713_1280.png" alt="" id ="profile-image">
         </a>
         <!-- href="pages/logout.html" -->
         <a   class="profil text-red-500" alt="me deconnecter" id="logout">

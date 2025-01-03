@@ -1,6 +1,6 @@
-let userid = localStorage.getItem("todolistuserid")
-let token = localStorage.getItem("todolisttoken")
-let baseurl = "http://localhost:3000"
+let userid = localStorage.getItem("userid")
+let token = localStorage.getItem("token")
+let baseurl = "https://anatide.ulrichanani.com"
 
 let profileImage = document.querySelector("#profile-image")
 let logoutbtn = document.querySelector("#logout")

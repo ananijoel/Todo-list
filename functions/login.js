@@ -15,15 +15,15 @@ login.addEventListener("click", (e) => {
         body: `{"username":"${username.value}","password":"${password.value}"}`
       };
 
-    fetch('http://localhost:3000/api/user-login', options)
+    fetch('https://anatide.ulrichanani.com/api/user-login', options)
     .then(response => response.json())
     .then(response => {
         if(response.error){
             alert(response.error)
         } else {
             if(response.ok){
-                localStorage.setItem("todolisttoken", response.token)
-                localStorage.setItem("todolistuserid", response.userId)
+                localStorage.setItem("token", response.token)
+                localStorage.setItem("userid", response.userId)
                 window.location.href = "../index.html"
                 window.location.href = "../index.html"
             } else{

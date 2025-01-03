@@ -1,6 +1,6 @@
-let userid = localStorage.getItem("todolistuserid")
-let token = localStorage.getItem("todolisttoken")
-let baseurl = "http://localhost:3000"
+let userid = localStorage.getItem("userid")
+let token = localStorage.getItem("token")
+let baseurl = "https://anatide.ulrichanani.com"
 
 
 let firstname = document.querySelector("#Firstname")
@@ -30,7 +30,8 @@ imageinput.addEventListener("change", async (e) => {
     const form = new FormData();
     form.append("picture", imageinput.files[0]);
     updateProfilePic(form)
-    window.location.reload()
+    
+    //getProfilePic()
 })
 
 function updateProfilePic(form){
@@ -38,7 +39,7 @@ function updateProfilePic(form){
     const options = {
     method: 'PUT',
     headers: {
-        Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTczNTgxOTU1MiwiZXhwIjoxNzM4NDk3OTUyfQ.2lB9FHnszrkWmpnm__ID3muIOHNnOawUYMPvkkCitRE'
+        Authorization: `Bearer ${token}`
     }
     };
 
@@ -46,7 +47,10 @@ function updateProfilePic(form){
 
     fetch(baseurl+'/api/update-user-picture/'+userid, options)
     .then(response => response.json())
-    .then(response => console.log(response))
+    .then(response => {
+        window.location.reload()
+        console.log(response)
+    })
     .catch(err => console.error(err));
 }
 
