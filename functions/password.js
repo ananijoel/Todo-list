@@ -44,7 +44,7 @@ function updatePassword(oldpassword,newpassword){
         .then(response =>{
             backToGeneralProfile()
             alert("le mot de passe a été modifié")
-            console.log(response)
+            //console.log(response)
         })
         .catch(err => {
             alert("L'ancien mot de passe est incorrect")

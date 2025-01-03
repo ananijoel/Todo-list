@@ -109,7 +109,7 @@ export class TodoList {
         const filter = e.currentTarget.getAttribute("data-filter")
         e.currentTarget.parentElement.querySelector('.active').classList.remove("active")
         e.currentTarget.classList.add("active")
-        console.log(filter)
+        //console.log(filter)
         if(filter === "todo"){
             this.#listElement.classList.add("hide-completed")
             this.#listElement.classList.remove("hide-todo")
@@ -171,7 +171,7 @@ class TodoListItem {
               fetch(baseurl+'/api/remove-todo/'+id, options)
                 .then(response => response.json())
                 .then(response => {
-                    console.log(response)
+                    //console.log(response)
                     this.remove(e)
                 })
                 .catch(err => console.error(err));
@@ -189,8 +189,7 @@ class TodoListItem {
               fetch(baseurl+'/api/check-todo/'+id, options)
                 .then(response => response.json())
                 .then(response => {
-                   
-                    console.log(response)
+                   //console.log(response)
                 })
                 .catch(err => console.error(err));
                 this.toggle(e.currentTarget)

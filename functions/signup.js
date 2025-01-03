@@ -7,6 +7,7 @@ let passwordverify = document.querySelector("#passwordverify")
 let signup = document.querySelector("#signup")
 
 signup.addEventListener("click", async (e) => {
+  e.preventDefault()
     const options = {
         method: 'POST',
         headers: {
@@ -20,8 +21,8 @@ signup.addEventListener("click", async (e) => {
           fetch('https://anatide.ulrichanani.com/api/add-user', options)
           .then(response => response.json())
           .then(response => {
-              console.log(response)
-              //window.location.href = "login.html"
+              //console.log(response)
+              window.location.href = "login.html"
             }
           )
           .catch(err => console.error(err));

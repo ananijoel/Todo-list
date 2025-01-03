@@ -28,7 +28,7 @@ login.addEventListener("click", (e) => {
                 window.location.href = "../index.html"
             } else{
                 alert(response.message)
-                console.log(response.ok)
+                //console.log(response.ok)
             }
         }
     })

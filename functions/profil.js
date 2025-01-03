@@ -49,7 +49,7 @@ function updateProfilePic(form){
     .then(response => response.json())
     .then(response => {
         window.location.reload()
-        console.log(response)
+        //console.log(response)
     })
     .catch(err => console.error(err));
 }
@@ -135,10 +135,10 @@ update.addEventListener("click", async (e) => {
         .then(response => {
             update.style.display = "none"
             edit.style.display = "block"
-            console.log(response)
+            //console.log(response)
         })
         .catch(err => console.error(err));
     
-       console.log(options.body)
+       //console.log(options.body)
 
 })
