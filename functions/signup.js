@@ -16,7 +16,7 @@ signup.addEventListener("click", async (e) => {
       };
       
       if(password.value === passwordverify.value){
-        if (validatePassword(password.value)){
+        
           fetch('https://anatide.ulrichanani.com/api/add-user', options)
           .then(response => response.json())
           .then(response => {
@@ -26,7 +26,7 @@ signup.addEventListener("click", async (e) => {
           )
           .catch(err => console.error(err));
           
-        }
+        
         else{
           alert("Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial")
         }
