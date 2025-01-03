@@ -27,9 +27,6 @@ signup.addEventListener("click", async (e) => {
           .catch(err => console.error(err));
           
         
-        else{
-          alert("Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial")
-        }
       }else{
         alert("Les mots de passe ne correspondent pas")
       }
