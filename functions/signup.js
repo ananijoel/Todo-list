@@ -21,7 +21,7 @@ signup.addEventListener("click", async (e) => {
           .then(response => response.json())
           .then(response => {
               console.log(response)
-              window.location.href = "login.html"
+              //window.location.href = "login.html"
             }
           )
           .catch(err => console.error(err));
