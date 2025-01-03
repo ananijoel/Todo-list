@@ -65,8 +65,12 @@ function getProfilePic(){
       fetch(baseurl+'/api/get-user-picture/'+userid, options)
         .then(response => response.blob() )
         .then(blob => {
-          const imageUrl = URL.createObjectURL(blob);
+            if(blob.size == 0){
+                profileImage.src = "../src/photo-5484713_1280.png"
+            }else{
+                const imageUrl = URL.createObjectURL(blob);
           profileImage.src = imageUrl
+            }
         })
         .catch(err => console.error('Erreur lors de la récupération de l\'image:', err));
       
