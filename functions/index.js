@@ -35,7 +35,7 @@ function getProfilePic(){
 }
 
 logoutbtn.addEventListener("click", (e) => {
-    choix = confirm("Vous allez vous déconnecter de votre compte")
+    let choix = confirm("Vous allez vous déconnecter de votre compte")
     if(choix){
         logout()
     }
