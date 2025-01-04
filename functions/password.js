@@ -6,7 +6,7 @@ let oldpassword = document.querySelector("#oldpassword")
 let newpassword = document.querySelector("#newpassword")    
 let newpasswordverify = document.querySelector("#newpasswordverify")
 
-let baseurl = "https://anatide.ulrichanani.com"
+import {baseurl} from "./api.js"
 
 
 passwordupdatebutton.addEventListener("click", async (e) => {
@@ -39,7 +39,7 @@ function updatePassword(oldpassword,newpassword){
         body:`{"oldpassword":"${oldpassword}","password":"${newpassword}"}`
       };
       
-      fetch(baseurl+'/api/update-user-password/'+userid, options)
+      fetch(baseurl()+'/api/update-user-password/'+userid, options)
         .then(response => response.json())
         .then(response =>{
             backToGeneralProfile()

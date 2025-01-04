@@ -1,6 +1,6 @@
 let userid = localStorage.getItem("userid")
 let token = localStorage.getItem("token")
-let baseurl = "https://anatide.ulrichanani.com"
+import {baseurl} from "./api.js"
 
 
 let firstname = document.querySelector("#Firstname")
@@ -45,7 +45,7 @@ function updateProfilePic(form){
 
     options.body = form;
 
-    fetch(baseurl+'/api/update-user-picture/'+userid, options)
+    fetch(baseurl()+'/api/update-user-picture/'+userid, options)
     .then(response => response.json())
     .then(response => {
         window.location.reload()
@@ -62,7 +62,7 @@ function getProfilePic(){
       }
       };
       
-      fetch(baseurl+'/api/get-user-picture/'+userid, options)
+      fetch(baseurl()+'/api/get-user-picture/'+userid, options)
         .then(response => response.blob() )
         .then(blob => {
             if(blob.size == 0){
@@ -87,7 +87,7 @@ function updatePage(){
         }
     };
     
-    fetch(baseurl+'/api/get-user/id/'+userid, options)
+    fetch(baseurl()+'/api/get-user/id/'+userid, options)
         .then(response => response.json())
         .then(response => {
             let data = response.data
@@ -130,7 +130,7 @@ update.addEventListener("click", async (e) => {
         "email": "${email.value}"}`
       };
       
-      fetch(baseurl+'/api/update-user-byid/'+userid, options)
+      fetch(baseurl()+'/api/update-user-byid/'+userid, options)
         .then(response => response.json())
         .then(response => {
             update.style.display = "none"

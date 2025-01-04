@@ -1,6 +1,6 @@
 let userid = localStorage.getItem("userid")
 let token = localStorage.getItem("token")
-let baseurl = "https://anatide.ulrichanani.com"
+import {baseurl} from "./api.js"
 
 let profileImage = document.querySelector("#profile-image")
 let logoutbtn = document.querySelector("#logout")
@@ -17,7 +17,7 @@ function getProfilePic(){
       }
       };
       
-      fetch(baseurl+'/api/get-user-picture/'+userid, options)
+      fetch(baseurl()+'/api/get-user-picture/'+userid, options)
         .then(response => response.blob() )
         .then(blob => {
             if(blob.size == 0){

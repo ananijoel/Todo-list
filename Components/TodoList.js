@@ -1,7 +1,8 @@
 import { createElelement } from "../functions/dom.js"
+import { baseurl } from "../functions/api.js"
 let userid = localStorage.getItem("userid")
 let token = localStorage.getItem("token")
-let baseurl = "https://anatide.ulrichanani.com"
+
 /**
  * @typedef {object} Todo
  * @property {number} id
@@ -89,7 +90,7 @@ export class TodoList {
             body: `{"userid":${userid},"title":"${title}","completed":false}`
           };
           
-          fetch(baseurl+'/api/add-todo', options)
+          fetch(baseurl()+'/api/add-todo', options)
             .then(response => response.json())
             .then(response => {
                 const item = new TodoListItem(todo)
@@ -168,7 +169,7 @@ class TodoListItem {
                 }
               };
               
-              fetch(baseurl+'/api/remove-todo/'+id, options)
+              fetch(baseurl()+'/api/remove-todo/'+id, options)
                 .then(response => response.json())
                 .then(response => {
                     //console.log(response)
@@ -186,7 +187,7 @@ class TodoListItem {
                 }
               };
               
-              fetch(baseurl+'/api/check-todo/'+id, options)
+              fetch(baseurl()+'/api/check-todo/'+id, options)
                 .then(response => response.json())
                 .then(response => {
                    //console.log(response)
